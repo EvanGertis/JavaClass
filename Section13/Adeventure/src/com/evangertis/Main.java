@@ -42,6 +42,13 @@ public class Main {
         locations.get(5).addExit("S",1);
         locations.get(5).addExit("W", 2);
 
+        Map<String, String> vocabulary = new HashMap<String, String>();
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("EAST", "E");
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("WEST", "W");
+        vocabulary.put("NORTH", "N");
+
 
         int loc = 1;
         while(true){
@@ -57,7 +64,19 @@ public class Main {
             }
             System.out.println("");
 
-            String direction = userInput(scanner.nextLine());
+            String direction = scanner.nextLine().toUpperCase();
+            if(direction.length() > 1)
+            {
+                String[] words = direction.split(" ");
+                for(String word : words){
+                    if(vocabulary.containsKey(word)){
+                        direction = vocabulary.get(word);
+                        break;
+                    }
+                }
+
+            }
+
             if(exits.containsKey(direction)){
                 loc = exits.get(direction);
             }
@@ -67,34 +86,5 @@ public class Main {
             }
         }
 
-    }
-
-    public static String userInput(String input){
-        String[] strArr = input.toLowerCase().split(" ");
-        String output = " ";
-
-        for(String i : strArr)
-        {
-            switch (i){
-                case "east":
-                    output = "E";
-                    break;
-                case "west":
-                    output = "W";
-                    break;
-                case "north":
-                    output = "N";
-                    break;
-                case "south":
-                    output = "S";
-                    break;
-                case "quit":
-                    output = "Q";
-                default:
-                    break;
-            }
-        }
-
-        return output;
     }
 }
