@@ -8,16 +8,16 @@ public class Location {
     private final String decription;
     private final Map<String, Integer> exits;
 
-    public Location(int locationID, String decription) {
+    public Location(int locationID, String decription, Map<String, Integer> exits) {
         this.locationID = locationID;
         this.decription = decription;
-        this.exits = new HashMap<String, Integer>();
-        this.exits.put("Quit", 0);
+        this.exits = new HashMap<String, Integer>(exits);
+        this.exits.put("Q", 0);
     }
 
-    public void addExit(String direction, int location){
-        exits.put(direction, location);
-    }
+//    public void addExit(String direction, int location){
+//        exits.put(direction, location);
+//    }
 
     public int getLocationID() {
         return locationID;
