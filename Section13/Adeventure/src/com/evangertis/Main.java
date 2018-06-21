@@ -17,7 +17,7 @@ public class Main {
         // Single letter commands (N, W, S, E, Q) should still be available.
         Scanner scanner = new Scanner(System.in);
         Map<String, Integer> tempExit = new HashMap<String, Integer>();
-        locations.put(0, new Location(1, "You are sitting infront of a computer learning java",tempExit));
+        locations.put(0, new Location(1, "You are sitting infront of a computer learning java",null));
 
         tempExit = new HashMap<String, Integer>();
         tempExit.put("W", 2);
