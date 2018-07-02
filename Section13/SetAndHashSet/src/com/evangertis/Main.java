@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
         HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
         solarSystem.put(temp.getName(), temp);
+
         planets.add(temp);
 
         temp = new HeavenlyBody("Venus", 225);
