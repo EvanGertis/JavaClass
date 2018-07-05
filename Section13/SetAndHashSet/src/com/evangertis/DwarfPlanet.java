@@ -8,7 +8,7 @@ public class DwarfPlanet extends HeavenlyBody {
 
     @Override
     public boolean addSatellite(HeavenlyBody moon) {
-        if(moon.getBodyType() == BodyTypes.DWARF_PLANET){
+        if(moon.getKey().getBodyTypes() == BodyTypes.DWARF_PLANET){
             return super.addSatellite(moon);
         }
         else{
