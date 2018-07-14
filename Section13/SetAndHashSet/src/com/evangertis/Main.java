@@ -95,7 +95,7 @@ public class Main {
             System.out.println("\t" + moon.getKey());
         }
 
-        HeavenlyBody pluto = new DwarfPlanet("Pluto", 842);
+        HeavenlyBody pluto = new Planet("Pluto", 842);
         planets.add(pluto);
 
         for(HeavenlyBody planet : planets) {
@@ -107,5 +107,15 @@ public class Main {
         HeavenlyBody earth2 = new Planet("Earth", 365);
         System.out.println(earth1.equals(earth2));
         System.out.println(earth2.equals(earth1));
+
+        solarSystem.put(pluto.getKey(), pluto);
+        System.out.println(solarSystem.get(HeavenlyBody.makeKey("Pluto", HeavenlyBody.BodyTypes.PLANET)));
+        System.out.println(solarSystem.get(HeavenlyBody.makeKey("Pluto", HeavenlyBody.BodyTypes.DWARF_PLANET)));
+
+        System.out.println();
+        System.out.println("The solar system containts");
+        for(HeavenlyBody heavenlyBody : solarSystem.values()){
+            System.out.println(heavenlyBody);
+        }
     }
 }
